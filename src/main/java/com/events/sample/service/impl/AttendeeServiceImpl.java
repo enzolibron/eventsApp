@@ -1,6 +1,7 @@
 package com.events.sample.service.impl;
 
 import com.events.sample.model.Attendee;
+import com.events.sample.model.Events;
 import com.events.sample.repository.AttendeeRepository;
 import com.events.sample.service.AttendeeService;
 import org.springframework.beans.factory.annotation.Autowired;

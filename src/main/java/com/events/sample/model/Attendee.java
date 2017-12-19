@@ -1,6 +1,5 @@
 package com.events.sample.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import javax.persistence.*;
 
 @Entity
@@ -10,29 +9,29 @@ public class Attendee {
     @GeneratedValue
     @Column(name = "attendee_id")
     private Long id;
+
     @Column(name = "attendee_name")
     private String attendeeName;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "events_id", nullable = false)
-    @JsonBackReference
-    private Events events;
+    @Column(name = "events_id")
+    private int events_id;
 
-    public Events getEvents() {
-        return events;
+
+    public int getEvents_id() {
+        return events_id;
     }
 
-    public void setEvents(Events events) {
-        this.events = events;
+    public void setEvents_id(int events_id) {
+        this.events_id = events_id;
     }
 
     public Attendee() {
 
     }
 
-    public Attendee(String attendeeName, Events events) {
+    public Attendee(String attendeeName, int events_id) {
         this.attendeeName = attendeeName;
-        this.events = events;
+        this.events_id = events_id;
     }
 
     public Attendee(String attendeeName) {

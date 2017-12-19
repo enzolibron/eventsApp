@@ -2,6 +2,7 @@ package com.events.sample.controller;
 
 import com.events.sample.model.Attendee;
 import com.events.sample.service.AttendeeService;
+import com.events.sample.service.EventsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +14,9 @@ public class AttendeeController {
 
     @Autowired
     AttendeeService attendeeService;
+
+    @Autowired
+    EventsService eventsService;
 
     //CREATE - add attendee
     @PostMapping("/attendee")
@@ -44,7 +48,5 @@ public class AttendeeController {
     public ResponseEntity<Attendee> deleteAttendee(@PathVariable(value = "id") Long attendeeId){
         return attendeeService.deleteAttendee(attendeeId);
     }
-
-
 
 }

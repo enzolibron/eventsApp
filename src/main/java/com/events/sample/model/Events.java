@@ -17,7 +17,7 @@ public class Events {
     private String eventName;
 
     @JsonProperty(value = "attendeeList")
-    @OneToMany(targetEntity = Attendee.class, mappedBy = "events",
+    @OneToMany(targetEntity = Attendee.class, mappedBy = "events_id",
             cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Attendee> attendeeList;
 
