@@ -11,20 +11,50 @@
     <schema id="5" parent="1" name="performance_schema"/>
     <schema id="6" parent="1" name="pets"/>
     <schema id="7" parent="1" name="sys"/>
-    <table id="8" parent="2" name="events"/>
-    <column id="9" parent="8" name="id">
+    <table id="8" parent="2" name="attendee"/>
+    <table id="9" parent="2" name="events"/>
+    <column id="10" parent="8" name="attendee_id">
       <Position>1</Position>
-      <DataType>int(11)|0</DataType>
+      <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="10" parent="8" name="event_name">
+    <column id="11" parent="8" name="attendee_name">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <key id="11" parent="8" name="PRIMARY">
+    <column id="12" parent="8" name="events_id">
+      <Position>3</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="13" parent="8" name="FKhgbgfnu96g4k988bobhs3mqxr">
+      <ColNames>events_id</ColNames>
+    </index>
+    <key id="14" parent="8" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
+      <ColNames>attendee_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="15" parent="8" name="FKhgbgfnu96g4k988bobhs3mqxr">
+      <ColNames>events_id</ColNames>
+      <RefSchemaName>events</RefSchemaName>
+      <RefTableName>events</RefTableName>
+      <RefColNames>events_id</RefColNames>
+    </foreign-key>
+    <column id="16" parent="9" name="events_id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="17" parent="9" name="event_name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <key id="18" parent="9" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>events_id</ColNames>
       <Primary>1</Primary>
     </key>
   </database-model>
